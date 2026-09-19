@@ -1,0 +1,188 @@
+.arcade-page {
+  min-height: 100vh;
+  padding: 100px 20px 60px;
+  background: radial-gradient(circle at center, #0a0d1d 0%, #060814 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+.arcade-page-header {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.arcade-back-btn {
+  font-size: 0.8rem;
+  padding: 8px 18px;
+}
+
+.arcade-page-title {
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  color: var(--color-accent-cyan);
+  text-shadow: 0 0 10px rgba(78, 205, 196, 0.4);
+}
+
+.arcade-page-score {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* Cabinet styling */
+.arcade-cabinet {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  padding: 24px;
+  background: rgba(12, 16, 32, 0.85);
+  border: 2px solid rgba(78, 205, 196, 0.3);
+  box-shadow: 0 0 40px rgba(78, 205, 196, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.arcade-screen-bezel {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 50vh, 500px);
+  background: #04060d;
+  border: 3px solid #1a233d;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.arcade-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+.arcade-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.arcade-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  background: rgba(6, 8, 20, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  padding: 20px;
+}
+
+.arcade-overlay-title {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--color-accent-gold);
+  text-shadow: 0 0 15px rgba(232, 160, 76, 0.5);
+}
+
+.arcade-overlay-sub {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-cyan);
+}
+
+.arcade-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.arcade-launch-btn {
+  font-size: 0.85rem;
+  padding: 12px 28px;
+  margin-top: 8px;
+}
+
+.arcade-score-final {
+  font-size: 1.1rem;
+}
+
+.new-highscore-badge {
+  font-size: 0.8rem;
+  color: #27c93f;
+  animation: pulse-glow 1.5s infinite;
+}
+
+/* D-Pad for mobile touch */
+.arcade-controls-dpad {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .arcade-controls-dpad {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .dpad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 44px);
+    grid-template-rows: repeat(3, 44px);
+    gap: 4px;
+  }
+
+  .dpad-btn {
+    background: rgba(26, 35, 61, 0.8);
+    border: 1px solid var(--color-accent-cyan);
+    color: var(--color-accent-cyan);
+    font-size: 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .dpad-up {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .dpad-left {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .dpad-right {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .dpad-down {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}

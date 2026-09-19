@@ -40,7 +40,7 @@ export default function Sponsors() {
         <div className="sponsors-header scroll-reveal">
           <div className="section-tag font-mono">
             <span className="tag-bracket">[</span>
-            <span className="tag-number">05</span>
+            <span className="tag-number">04</span>
             <span className="tag-bracket">]</span>
             <span className="tag-text">MISSION_PARTNERS</span>
           </div>
@@ -100,12 +100,12 @@ export default function Sponsors() {
               Limited seats. First come, first served.
             </p>
             <div className="register-details font-mono">
-              <span>📅 DATE: TO BE ANNOUNCED</span>
-              <span>📍 VENUE: CUSAT CAMPUS, KOCHI</span>
-              <span>🎫 REGISTRATION OPENING SOON</span>
+              <span>[DATE] TO BE ANNOUNCED</span>
+              <span>[VENUE] CUSAT CAMPUS, KOCHI</span>
+              <span>[STATUS] REGISTRATION OPENING SOON</span>
             </div>
             <button
-              className="btn-register register-main-btn interactive"
+              className="btn-register register-main-btn interactive font-mono"
               id="main-register-btn"
             >
               [ REGISTER NOW ]
@@ -122,7 +122,7 @@ export default function Sponsors() {
           </p>
           <a
             href="mailto:seds@cusat.ac.in"
-            className="btn-register interactive"
+            className="btn-register interactive font-mono"
             id="become-sponsor-btn"
           >
             [ BECOME A PARTNER ]
@@ -132,4 +132,3 @@ export default function Sponsors() {
     </section>
   )
 }
-

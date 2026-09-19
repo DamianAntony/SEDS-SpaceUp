@@ -1,12 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Hero.css'
 
-export default function Hero() {
-  const heroRef = useRef(null)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [countdown, setCountdown] = useState({ days: 0, hours: 0, mins: 0, secs: 0 })
+import nebulaBg from '../assets/hero/nebula.png'
+import starsBg from '../assets/hero/stars_clean.png'
+import saturnImg from '../assets/hero/saturn_clean.png'
+import moonImg from '../assets/hero/moon_clean.png'
+import astronautImg from '../assets/hero/astronaut.png'
+import terrainImg from '../assets/hero/terrain_clean.png'
 
-  // Parallax mouse tracking
+export default function Hero({ onOpenArcade }) {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+
   useEffect(() => {
     const handleMouse = (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2
@@ -17,132 +21,121 @@ export default function Hero() {
     return () => window.removeEventListener('mousemove', handleMouse)
   }, [])
 
-  // Placeholder countdown target (generic future date for demonstration)
-  useEffect(() => {
-    const target = new Date('2026-03-15T09:00:00+05:30').getTime()
-    const update = () => {
-      const now = Date.now()
-      const diff = Math.max(0, target - now)
-      setCountdown({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-        mins: Math.floor((diff / (1000 * 60)) % 60),
-        secs: Math.floor((diff / 1000) % 60),
-      })
-    }
-    update()
-    const interval = setInterval(update, 1000)
-    return () => clearInterval(interval)
-  }, [])
-
   const scrollToRegister = () => {
     const el = document.getElementById('register')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="hero" ref={heroRef} id="hero">
-      {/* Parallax layers */}
-      <div className="hero-bg-layers">
-        {/* Deep space gradient */}
-        <div className="hero-space-gradient" />
-
-        {/* Saturn planet */}
+    <section className="hero" id="hero">
+      {/* 16-Bit Retro Layered Background */}
+      <div className="hero-layers-container">
+        {/* Layer 1: Nebula sky */}
         <div
-          className="hero-planet-saturn"
-          style={{
-            transform: `translate(${mousePos.x * -15}px, ${mousePos.y * -10}px)`,
-          }}
-        >
-          <div className="saturn-body" />
-          <div className="saturn-ring" />
-        </div>
-
-        {/* Small moon */}
-        <div
-          className="hero-moon"
-          style={{
-            transform: `translate(${mousePos.x * 20}px, ${mousePos.y * 15}px)`,
-          }}
+          className="hero-layer hero-layer-nebula"
+          style={{ backgroundImage: `url(${nebulaBg})` }}
         />
 
-        {/* Nebula glow */}
-        <div className="hero-nebula" />
+        {/* Layer 2: Sparkling Stars */}
+        <div
+          className="hero-layer hero-layer-stars"
+          style={{ backgroundImage: `url(${starsBg})` }}
+        />
 
-        {/* Mountain terrain */}
-        <div className="hero-terrain" />
-      </div>
-
-      {/* Main content */}
-      <div className="hero-content">
-        <div className="hero-subtitle-top font-mono">
-          SEDS CUSAT PRESENTS // SPACE UNCONFERENCE
+        {/* Layer 3: Saturn Planet */}
+        <div
+          className="hero-layer-saturn"
+          style={{
+            transform: `translate(${mousePos.x * -12}px, ${mousePos.y * -8}px)`,
+          }}
+        >
+          <img src={saturnImg} alt="Saturn Planet" className="saturn-image" />
         </div>
 
-        <h1 className="hero-title" data-text="SPACEUP CUSAT">
+        {/* Layer 4: Moon */}
+        <div
+          className="hero-layer-moon"
+          style={{
+            transform: `translate(${mousePos.x * 15}px, ${mousePos.y * 10}px)`,
+          }}
+        >
+          <img src={moonImg} alt="Moon" className="moon-image" />
+        </div>
+
+        {/* Layer 5: Zero-G Floating Astronaut */}
+        <div
+          className="hero-layer-astronaut"
+          style={{
+            transform: `translate(${mousePos.x * 8}px, ${mousePos.y * 12}px)`,
+          }}
+        >
+          <img src={astronautImg} alt="Pixel Astronaut" className="astronaut-image" />
+        </div>
+
+        {/* Layer 6: Terrain */}
+        <div className="hero-layer-terrain">
+          <img src={terrainImg} alt="Pixel Terrain" className="terrain-image" />
+        </div>
+      </div>
+
+      {/* Main Content Overlay */}
+      <div className="hero-content">
+        <div className="hero-subtitle-top font-mono">
+          SEDS CUSAT PRESENTS // INDIA&apos;S BIGGEST SPACE UNCONFERENCE
+        </div>
+
+        <h1 className="hero-title font-pixel">
           <span className="hero-title-line">SPACEUP</span>
-          <span className="hero-title-line hero-title-vol">CUSAT</span>
+          <span className="hero-title-line hero-title-cusat">CUSAT</span>
         </h1>
 
         <div className="hero-info font-mono">
           <span>DATE: TO BE ANNOUNCED</span>
           <span className="hero-info-dot">•</span>
-          <span>VENUE: CUSAT CAMPUS, KOCHI</span>
+          <span>CUSAT CAMPUS, KOCHI</span>
+          <span className="hero-info-dot">//</span>
+          <span>WHERE ASTRONAUTICS MEETS COMMUNITY</span>
         </div>
-
-        <p className="hero-tagline font-mono">
-          // WHERE ASTRONAUTICS MEETS COMMUNITY
-        </p>
 
         <div className="hero-meta font-mono">
           <span>ORBIT: CUSAT-LEO</span>
           <span className="hero-meta-sep">•</span>
-          <span>NODE: CUSAT-STN-01</span>
+          <span>NODE: CUSAT_STN_01</span>
           <span className="hero-meta-sep">•</span>
           <span>MODE: PARTICIPANT-DRIVEN</span>
         </div>
 
-        {/* Countdown */}
-        <div className="hero-countdown">
-          <div className="countdown-label font-mono">T-MINUS LAUNCH (DATE TBA):</div>
-          <div className="countdown-blocks">
-            {[
-              { val: countdown.days, label: 'DAYS' },
-              { val: countdown.hours, label: 'HRS' },
-              { val: countdown.mins, label: 'MIN' },
-              { val: countdown.secs, label: 'SEC' },
-            ].map((item) => (
-              <div key={item.label} className="countdown-block">
-                <span className="countdown-value font-display">
-                  {String(item.val).padStart(2, '0')}
-                </span>
-                <span className="countdown-unit font-mono">{item.label}</span>
-              </div>
-            ))}
-          </div>
+        {/* Action Buttons */}
+        <div className="hero-actions">
+          <button
+            className="btn-register hero-btn-main interactive font-pixel"
+            onClick={scrollToRegister}
+            id="hero-register-btn"
+          >
+            [ REGISTER ]
+          </button>
+
+          <button
+            className="btn-arcade-hero interactive font-pixel"
+            onClick={onOpenArcade}
+          >
+            [ 🎮 PLAY ARCADE ]
+          </button>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="hero-bottom">
-        <span className="hero-coords font-mono">
+      {/* Bottom Telemetry Bar */}
+      <div className="hero-bottom-telemetry font-mono">
+        <span className="hero-coords">
           LAT: 10.0435° N / LON: 76.3242° E // TRANSMISSION RX: STANDBY
         </span>
         <button
-          className="btn-register interactive"
+          className="btn-register hero-bottom-reg-btn interactive font-pixel"
           onClick={scrollToRegister}
-          id="hero-register-btn"
         >
           [ REGISTER ]
         </button>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="hero-scroll-indicator">
-        <div className="scroll-line" />
-        <span className="scroll-text font-mono">SCROLL</span>
-      </div>
     </section>
   )
 }
-

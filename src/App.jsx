@@ -8,7 +8,7 @@ import About from './components/About.jsx'
 import Speakers from './components/Speakers.jsx'
 import Schedule from './components/Schedule.jsx'
 import Sponsors from './components/Sponsors.jsx'
-import ArcadeGame from './components/ArcadeGame.jsx'
+import ArcadeGamePage from './components/ArcadeGamePage.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollReveal from './components/ScrollReveal.jsx'
 import MarqueeStrip from './components/MarqueeStrip.jsx'
@@ -16,6 +16,7 @@ import MarqueeStrip from './components/MarqueeStrip.jsx'
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [loadProgress, setLoadProgress] = useState(0)
+  const [viewMode, setViewMode] = useState('home') // 'home' | 'arcade'
 
   useEffect(() => {
     let progress = 0
@@ -43,26 +44,29 @@ function App() {
           <CustomCursor />
           <div className="crt-overlay" />
           <StarField />
-          <Navbar />
-          <main>
-            <Hero />
-            <MarqueeStrip />
-            <ScrollReveal>
-              <About />
-            </ScrollReveal>
-            <ScrollReveal>
-              <Speakers />
-            </ScrollReveal>
-            <ScrollReveal>
-              <Schedule />
-            </ScrollReveal>
-            <ScrollReveal>
-              <ArcadeGame />
-            </ScrollReveal>
-            <ScrollReveal>
-              <Sponsors />
-            </ScrollReveal>
-          </main>
+          <Navbar onOpenArcade={() => setViewMode('arcade')} />
+
+          {viewMode === 'arcade' ? (
+            <ArcadeGamePage onBack={() => setViewMode('home')} />
+          ) : (
+            <main>
+              <Hero onOpenArcade={() => setViewMode('arcade')} />
+              <MarqueeStrip />
+              <ScrollReveal>
+                <About />
+              </ScrollReveal>
+              <ScrollReveal>
+                <Speakers />
+              </ScrollReveal>
+              <ScrollReveal>
+                <Schedule />
+              </ScrollReveal>
+              <ScrollReveal>
+                <Sponsors />
+              </ScrollReveal>
+            </main>
+          )}
+
           <Footer />
         </>
       )}

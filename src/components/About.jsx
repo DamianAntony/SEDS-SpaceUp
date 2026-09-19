@@ -80,22 +80,22 @@ export default function About() {
         <div className="about-features">
           {[
             {
-              icon: '🚀',
+              tag: '[01_GRID]',
               title: 'PARTICIPANT-DRIVEN',
               desc: 'You propose the sessions. You vote. The best ideas take the stage.',
             },
             {
-              icon: '🛰️',
+              tag: '[02_NET]',
               title: 'NETWORKING HUB',
               desc: 'Connect with space scientists, researchers, and fellow enthusiasts.',
             },
             {
-              icon: '🔭',
+              tag: '[03_LAB]',
               title: 'HANDS-ON WORKSHOPS',
               desc: 'Build, launch, and learn — from rocketry concepts to satellite design.',
             },
             {
-              icon: '🌍',
+              tag: '[04_COMM]',
               title: 'GLOBAL COMMUNITY',
               desc: 'Join the international SpaceUp network spanning chapters worldwide.',
             },
@@ -105,7 +105,7 @@ export default function About() {
               className="feature-card glass-card scroll-reveal interactive"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <span className="feature-icon">{feature.icon}</span>
+              <span className="feature-icon font-mono text-accent-cyan">{feature.tag}</span>
               <h3 className="feature-title font-display">{feature.title}</h3>
               <p className="feature-desc">{feature.desc}</p>
               <div className="feature-corner top-left" />
@@ -119,4 +119,3 @@ export default function About() {
     </section>
   )
 }
-

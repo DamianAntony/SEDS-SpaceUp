@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
 
-export default function Navbar() {
+export default function Navbar({ onOpenArcade }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 40)
 
-      // Detect active section
       const sections = ['about', 'speakers', 'schedule', 'sponsors']
       for (const id of sections.reverse()) {
         const el = document.getElementById(id)
@@ -29,7 +28,6 @@ export default function Navbar() {
     { href: '#about', label: 'ABOUT' },
     { href: '#speakers', label: 'SPEAKERS' },
     { href: '#schedule', label: 'SCHEDULE' },
-    { href: '#arcade', label: 'ARCADE' },
     { href: '#sponsors', label: 'SPONSORS' },
   ]
 
@@ -46,7 +44,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="navbar-inner">
         <div className="navbar-left">
-          <span className="nav-signal">
+          <span className="nav-signal font-mono">
             <span className="signal-dot" />
             SYS: SIGNAL_ACQUIRED // FREQ: 1420.405 MHz
           </span>
@@ -57,7 +55,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`nav-link ${
+              className={`nav-link font-mono ${
                 activeSection === link.href.slice(1) ? 'active' : ''
               }`}
               onClick={(e) => handleNavClick(e, link.href)}
@@ -65,6 +63,16 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          <button
+            className="btn-arcade-nav font-pixel interactive"
+            onClick={() => {
+              setMenuOpen(false)
+              if (onOpenArcade) onOpenArcade()
+            }}
+          >
+            [ 🎮 ARCADE ]
+          </button>
         </div>
 
         <button
@@ -86,17 +94,28 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="mobile-nav-link"
+              className="mobile-nav-link font-pixel"
               onClick={(e) => handleNavClick(e, link.href)}
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <span className="mobile-nav-index">0{i + 1}</span>
+              <span className="mobile-nav-index font-mono">0{i + 1}</span>
               {link.label}
             </a>
           ))}
+
+          <button
+            className="mobile-arcade-btn font-pixel interactive"
+            onClick={() => {
+              setMenuOpen(false)
+              if (onOpenArcade) onOpenArcade()
+            }}
+          >
+            [ 🎮 PLAY ARCADE GAME ]
+          </button>
+
           <a
             href="#register"
-            className="btn-register mobile-register"
+            className="btn-register mobile-register font-pixel"
             onClick={(e) => handleNavClick(e, '#register')}
           >
             [ REGISTER ]

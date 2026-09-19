@@ -6,19 +6,20 @@ export default function CustomCursor() {
   const trailRef = useRef(null)
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
+  const [hasMoved, setHasMoved] = useState(false)
   const particles = useRef([])
   const canvasRef = useRef(null)
   const animFrameRef = useRef(null)
-  const mousePos = useRef({ x: -100, y: -100 })
-  const trailPos = useRef({ x: -100, y: -100 })
+  const mousePos = useRef({ x: -500, y: -500 })
+  const trailPos = useRef({ x: -500, y: -500 })
 
   useEffect(() => {
-    // Skip on mobile
     if (window.innerWidth < 768) return
 
     const cursor = cursorRef.current
     const trail = trailRef.current
     const canvas = canvasRef.current
+    if (!canvas) return
     const ctx = canvas.getContext('2d')
 
     canvas.width = window.innerWidth
@@ -31,9 +32,9 @@ export default function CustomCursor() {
     window.addEventListener('resize', handleResize)
 
     const handleMouseMove = (e) => {
+      if (!hasMoved) setHasMoved(true)
       mousePos.current = { x: e.clientX, y: e.clientY }
 
-      // Spawn trail particles
       if (Math.random() > 0.5) {
         particles.current.push({
           x: e.clientX + (Math.random() - 0.5) * 10,
@@ -73,9 +74,7 @@ export default function CustomCursor() {
     document.addEventListener('mouseover', handleMouseOver)
     document.addEventListener('mouseout', handleMouseOut)
 
-    // Animation loop
     const animate = () => {
-      // Smooth trail follow
       trailPos.current.x += (mousePos.current.x - trailPos.current.x) * 0.15
       trailPos.current.y += (mousePos.current.y - trailPos.current.y) * 0.15
 
@@ -86,7 +85,6 @@ export default function CustomCursor() {
         trail.style.transform = `translate(${trailPos.current.x}px, ${trailPos.current.y}px)`
       }
 
-      // Draw particles
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       particles.current = particles.current.filter((p) => {
         p.x += p.speedX
@@ -99,8 +97,6 @@ export default function CustomCursor() {
         ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.6})`
         ctx.fill()
-
-        // Draw tiny connecting line to nearby particles
         return true
       })
 
@@ -118,7 +114,7 @@ export default function CustomCursor() {
       window.removeEventListener('resize', handleResize)
       cancelAnimationFrame(animFrameRef.current)
     }
-  }, [])
+  }, [hasMoved])
 
   if (typeof window !== 'undefined' && window.innerWidth < 768) return null
 
@@ -127,7 +123,8 @@ export default function CustomCursor() {
       <canvas ref={canvasRef} className="cursor-canvas" />
       <div
         ref={cursorRef}
-        className={`custom-cursor ${isHovering ? 'hover' : ''} ${isClicking ? 'click' : ''}`}
+        className={`custom-cursor ${isHovering ? 'hover' : ''} ${isClicking ? 'click' : ''} ${hasMoved ? 'active' : ''}`}
+        style={{ transform: 'translate(-500px, -500px)' }}
       >
         <div className="cursor-crosshair">
           <span className="ch-line ch-top" />
@@ -139,7 +136,8 @@ export default function CustomCursor() {
       </div>
       <div
         ref={trailRef}
-        className={`cursor-trail ${isHovering ? 'hover' : ''}`}
+        className={`cursor-trail ${isHovering ? 'hover' : ''} ${hasMoved ? 'active' : ''}`}
+        style={{ transform: 'translate(-500px, -500px)' }}
       />
     </>
   )

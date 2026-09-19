@@ -16,6 +16,12 @@
   z-index: calc(var(--z-cursor) + 1);
   will-change: transform;
   mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-cursor.active {
+  opacity: 1;
 }
 
 .cursor-crosshair {
@@ -110,7 +116,12 @@
   pointer-events: none;
   z-index: var(--z-cursor);
   will-change: transform;
-  transition: width 0.3s, height 0.3s, margin 0.3s, border-color 0.3s;
+  opacity: 0;
+  transition: width 0.3s, height 0.3s, margin 0.3s, border-color 0.3s, opacity 0.3s ease;
+}
+
+.cursor-trail.active {
+  opacity: 1;
 }
 
 .cursor-trail.hover {
