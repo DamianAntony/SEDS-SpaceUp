@@ -4,7 +4,27 @@
 
 ---
 
+## 📌 Project Synopsis
+
+**SpaceUp CUSAT** serves as the flagship digital portal for the upcoming space unconference organized by SEDS CUSAT. Unlike traditional conferences with rigid timetables, SpaceUp is a **participant-driven unconference** where attendees propose sessions, vote on topics, and shape the agenda live.
+
+### Core Objectives:
+1. **Engaging Frontend Experience**: Captivate students, space enthusiasts, and researchers with modern cyberpunk & retro space UI aesthetics, dynamic starfields, mouse parallax, and CRT scanline overlays.
+2. **Modular Placeholder Architecture**: All section containers, schedule timelines, speaker cards, and sponsor grids maintain structural spacing while leaving text/names as easily editable placeholders until official announcements.
+3. **Interactive Mini-Game**: Features an embedded, zero-dependency 60FPS canvas space shooter ("Asteroid Belt") with dual auto-lasers, D-Pad touch controls, and local high-score tracking.
+4. **Backend Ready**: Registration and session submission buttons are pre-wired with descriptive HTML IDs (`#hero-register-btn`, `#main-register-btn`, `#propose-session-btn`) for straightforward API integration.
+
+---
+
+## 🖼️ UI Demo & Visual Showcase
+
+![SpaceUp CUSAT Demo Preview](./public/demo_preview.png)
+*Figure 1: SpaceUp CUSAT retro space interface featuring dark-mode hero banner, terminal mission brief logs, 3D crew cards, and embedded Asteroid Arcade mini-game.*
+
+---
+
 ## 📸 Tech Stack & Badges
+
 
 ![React](https://img.shields.io/badge/React-19.1.0-blue?logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-6.0.0-646CFF?logo=vite&logoColor=white)
