@@ -98,20 +98,24 @@ export default function Navbar({ onOpenArcade }) {
               onClick={(e) => handleNavClick(e, link.href)}
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <span className="mobile-nav-index font-mono">0{i + 1}</span>
+              <span className="mobile-nav-index font-pixel">0{i + 1}</span>
               {link.label}
             </a>
           ))}
 
-          <button
-            className="mobile-arcade-btn font-pixel interactive"
-            onClick={() => {
+          <a
+            href="#arcade"
+            className="mobile-nav-link font-pixel"
+            onClick={(e) => {
+              e.preventDefault()
               setMenuOpen(false)
               if (onOpenArcade) onOpenArcade()
             }}
+            style={{ animationDelay: `${navLinks.length * 0.1}s` }}
           >
-            [ 🎮 PLAY ARCADE GAME ]
-          </button>
+            <span className="mobile-nav-index font-pixel">05</span>
+            ARCADE
+          </a>
 
           <a
             href="#register"
