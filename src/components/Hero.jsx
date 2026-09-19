@@ -42,37 +42,28 @@ export default function Hero({ onOpenArcade }) {
           style={{ backgroundImage: `url(${starsBg})` }}
         />
 
-        {/* Layer 3: Saturn Planet */}
+        {/* Layer 3: Saturn Planet + Moon (Anchored relative to Saturn) */}
         <div
-          className="hero-layer-saturn"
+          className="hero-saturn-moon-wrapper"
           style={{
-            transform: `translate(${mousePos.x * -12}px, ${mousePos.y * -8}px)`,
+            transform: `translate(calc(-50% + ${mousePos.x * -10}px), ${mousePos.y * -6}px)`,
           }}
         >
           <img src={saturnImg} alt="Saturn Planet" className="saturn-image" />
-        </div>
-
-        {/* Layer 4: Moon */}
-        <div
-          className="hero-layer-moon"
-          style={{
-            transform: `translate(${mousePos.x * 15}px, ${mousePos.y * 10}px)`,
-          }}
-        >
           <img src={moonImg} alt="Moon" className="moon-image" />
         </div>
 
-        {/* Layer 5: Zero-G Floating Astronaut */}
+        {/* Layer 4: Zero-G Floating Astronaut */}
         <div
           className="hero-layer-astronaut"
           style={{
-            transform: `translate(${mousePos.x * 8}px, ${mousePos.y * 12}px)`,
+            transform: `translate(calc(-50% + ${mousePos.x * 8}px), calc(-50% + ${mousePos.y * 12}px))`,
           }}
         >
           <img src={astronautImg} alt="Pixel Astronaut" className="astronaut-image" />
         </div>
 
-        {/* Layer 6: Terrain */}
+        {/* Layer 5: Clean Rocky Terrain */}
         <div className="hero-layer-terrain">
           <img src={terrainImg} alt="Pixel Terrain" className="terrain-image" />
         </div>
@@ -85,8 +76,7 @@ export default function Hero({ onOpenArcade }) {
         </div>
 
         <h1 className="hero-title font-pixel">
-          <span className="hero-title-line">SPACEUP</span>
-          <span className="hero-title-line hero-title-cusat">CUSAT</span>
+          SPACEUP <span className="hero-title-cusat">CUSAT</span>
         </h1>
 
         <div className="hero-info font-mono">

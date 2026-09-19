@@ -40,11 +40,11 @@
   --gradient-hero: linear-gradient(180deg, transparent 0%, rgba(7,8,15,0.4) 50%, #07080f 100%);
   --gradient-cyan-glow: radial-gradient(ellipse at center, rgba(78,205,196,0.15) 0%, transparent 70%);
 
-  /* 16-Bit Retro Pixel Fonts */
+  /* 16-Bit Retro Pixel Fonts (Enforced Globally Across All Text) */
   --font-pixel: 'Press Start 2P', monospace;
-  --font-mono: 'Share Tech Mono', monospace;
+  --font-mono: 'Press Start 2P', monospace;
   --font-display: 'Press Start 2P', monospace;
-  --font-body: 'Share Tech Mono', monospace;
+  --font-body: 'Press Start 2P', monospace;
 
   /* Spacing */
   --section-padding: clamp(60px, 10vh, 120px);
@@ -90,7 +90,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  font-family: var(--font-mono);
+  font-family: var(--font-pixel);
   background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
   line-height: 1.6;

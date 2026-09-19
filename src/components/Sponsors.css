@@ -8,7 +8,7 @@
 }
 
 .sponsors-title {
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
   font-weight: 800;
   color: var(--color-text-heading);
   letter-spacing: 0.05em;
@@ -16,7 +16,7 @@
 }
 
 .sponsors-subtitle {
-  font-size: 0.7rem;
+  font-size: 0.58rem;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
 }
@@ -27,8 +27,8 @@
 }
 
 .tier-name {
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -41,11 +41,11 @@
 }
 
 .sponsor-card {
-  padding: 28px 36px;
+  padding: 24px 30px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-width: 180px;
+  min-width: 170px;
   transition: all var(--transition-smooth);
 }
 
@@ -54,7 +54,7 @@
 }
 
 .sponsor-logo-placeholder {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-text-heading);
   letter-spacing: 0.1em;
@@ -62,7 +62,7 @@
 }
 
 .sponsor-desc {
-  font-size: 0.55rem;
+  font-size: 0.48rem;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
   opacity: 0;
@@ -102,7 +102,7 @@
 }
 
 .register-cta-inner {
-  padding: clamp(32px, 5vw, 60px);
+  padding: clamp(28px, 4vw, 48px);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -125,7 +125,7 @@
 }
 
 .register-title {
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
   font-weight: 800;
   color: var(--color-text-heading);
   letter-spacing: 0.05em;
@@ -133,7 +133,7 @@
 }
 
 .register-desc {
-  font-size: 0.8rem;
+  font-size: 0.62rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.05em;
   line-height: 1.8;
@@ -146,20 +146,20 @@
   gap: 24px;
   flex-wrap: wrap;
   margin-bottom: 28px;
-  font-size: 0.7rem;
+  font-size: 0.55rem;
   letter-spacing: 0.08em;
   color: var(--color-text-primary);
 }
 
 .register-main-btn {
-  font-size: 1rem;
-  padding: 18px 48px;
-  letter-spacing: 0.25em;
+  font-size: 0.72rem;
+  padding: 14px 32px;
+  letter-spacing: 0.18em;
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
 .register-fine-print {
-  font-size: 0.55rem;
+  font-size: 0.48rem;
   color: var(--color-text-muted);
   letter-spacing: 0.08em;
   margin-top: 16px;
@@ -176,7 +176,7 @@
 }
 
 .sponsors-become p {
-  font-size: 0.75rem;
+  font-size: 0.58rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.08em;
 }

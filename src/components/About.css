@@ -75,7 +75,7 @@
 }
 
 .terminal-title {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: var(--color-text-muted);
   letter-spacing: 0.1em;
   margin-left: 8px;
@@ -86,14 +86,14 @@
 }
 
 .terminal-prefix {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   color: var(--color-terminal-green);
   margin-bottom: 12px;
 }
 
 .about-text {
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.65rem;
+  line-height: 1.8;
   color: var(--color-text-secondary);
 }
 
@@ -115,7 +115,7 @@
 }
 
 .stat-card {
-  padding: 24px;
+  padding: 20px 14px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -127,7 +127,7 @@
 }
 
 .stat-value {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   font-weight: 900;
   color: var(--color-accent-gold);
   line-height: 1;
@@ -136,14 +136,14 @@
 }
 
 .stat-suffix {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: var(--color-accent-gold-light);
   vertical-align: super;
 }
 
 .stat-label {
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
   color: var(--color-text-muted);
 }
 
@@ -157,15 +157,18 @@
   border-radius: 50%;
 }
 
-/* Features */
+/* Features - Working Flexbox Layout */
 .about-features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
 }
 
 .feature-card {
-  padding: 28px 20px;
+  flex: 1 1 220px;
+  min-width: 220px;
+  padding: 24px 18px;
   text-align: center;
   position: relative;
   transition: all var(--transition-smooth);
@@ -177,13 +180,14 @@
 }
 
 .feature-icon {
-  font-size: 2rem;
+  font-size: 0.85rem;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  letter-spacing: 0.1em;
 }
 
 .feature-title {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   letter-spacing: 0.12em;
   color: var(--color-accent-cyan);
   margin-bottom: 10px;
@@ -191,9 +195,9 @@
 }
 
 .feature-desc {
-  font-size: 0.8rem;
+  font-size: 0.55rem;
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Corner decorations */
