@@ -282,7 +282,8 @@
   .hero {
     min-height: calc(100vh - 0px);
     padding-top: 60px;
-    padding-bottom: 70px;
+    padding-bottom: 75px;
+    justify-content: flex-end;
   }
 
   .hero-bottom-telemetry {
@@ -299,7 +300,8 @@
   }
 
   .hero-content {
-    margin-top: 80px;
+    margin-top: auto;
+    margin-bottom: 40px;
     padding: 0 16px;
   }
 
@@ -315,19 +317,24 @@
   }
 
   .hero-layer-astronaut {
-    width: 95px;
-    top: 46%;
+    width: 90px;
+    top: 38%;
   }
 
   .hero-saturn-moon-wrapper {
-    width: 320px;
-    top: 12px;
+    width: 300px;
+    top: 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-bottom: 65px;
+  }
+
   .hero-content {
-    margin-top: 60px;
+    margin-top: auto;
+    margin-bottom: 30px;
     padding: 0 12px;
   }
 
@@ -380,12 +387,12 @@
   }
 
   .hero-saturn-moon-wrapper {
-    width: 250px;
+    width: 240px;
     top: 10px;
   }
 
   .hero-layer-astronaut {
-    width: 70px;
-    top: 44%;
+    width: 65px;
+    top: 36%;
   }
 }
