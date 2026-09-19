@@ -71,7 +71,7 @@ export default function Hero({ onOpenArcade }) {
 
       {/* Main Content Overlay */}
       <div className="hero-content">
-        <div className="hero-subtitle-top font-mono">
+        <div className="hero-subtitle-top font-pixel">
           SEDS CUSAT PRESENTS // INDIA&apos;S BIGGEST SPACE UNCONFERENCE
         </div>
 
@@ -79,20 +79,10 @@ export default function Hero({ onOpenArcade }) {
           SPACEUP <span className="hero-title-cusat">CUSAT</span>
         </h1>
 
-        <div className="hero-info font-mono">
+        <div className="hero-info font-pixel">
           <span>DATE: TO BE ANNOUNCED</span>
           <span className="hero-info-dot">•</span>
           <span>CUSAT CAMPUS, KOCHI</span>
-          <span className="hero-info-dot">//</span>
-          <span>WHERE ASTRONAUTICS MEETS COMMUNITY</span>
-        </div>
-
-        <div className="hero-meta font-mono">
-          <span>ORBIT: CUSAT-LEO</span>
-          <span className="hero-meta-sep">•</span>
-          <span>NODE: CUSAT_STN_01</span>
-          <span className="hero-meta-sep">•</span>
-          <span>MODE: PARTICIPANT-DRIVEN</span>
         </div>
 
         {/* Action Buttons */}
@@ -119,12 +109,7 @@ export default function Hero({ onOpenArcade }) {
         <span className="hero-coords">
           LAT: 10.0435° N / LON: 76.3242° E // TRANSMISSION RX: STANDBY
         </span>
-        <button
-          className="btn-register hero-bottom-reg-btn interactive font-pixel"
-          onClick={scrollToRegister}
-        >
-          [ REGISTER ]
-        </button>
+        
       </div>
     </section>
   )
