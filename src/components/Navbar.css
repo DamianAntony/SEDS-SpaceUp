@@ -244,3 +244,10 @@
     display: block;
   }
 }
+
+@media (max-width: 480px) {
+  .nav-signal {
+    font-size: 0.45rem;
+    letter-spacing: 0.05em;
+  }
+}
