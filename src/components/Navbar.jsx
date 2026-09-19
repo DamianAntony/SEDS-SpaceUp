@@ -1,0 +1,108 @@
+import { useState, useEffect } from 'react'
+import './Navbar.css'
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+
+      // Detect active section
+      const sections = ['about', 'speakers', 'schedule', 'sponsors']
+      for (const id of sections.reverse()) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= 200) {
+          setActiveSection(id)
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const navLinks = [
+    { href: '#about', label: 'ABOUT' },
+    { href: '#speakers', label: 'SPEAKERS' },
+    { href: '#schedule', label: 'SCHEDULE' },
+    { href: '#arcade', label: 'ARCADE' },
+    { href: '#sponsors', label: 'SPONSORS' },
+  ]
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    const el = document.querySelector(href)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
+      <div className="navbar-inner">
+        <div className="navbar-left">
+          <span className="nav-signal">
+            <span className="signal-dot" />
+            SYS: SIGNAL_ACQUIRED // FREQ: 1420.405 MHz
+          </span>
+        </div>
+
+        <div className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`nav-link ${
+                activeSection === link.href.slice(1) ? 'active' : ''
+              }`}
+              onClick={(e) => handleNavClick(e, link.href)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <button
+          className={`nav-hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      {/* Mobile menu overlay */}
+      <div className={`mobile-menu-overlay ${menuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-bg" />
+        <div className="mobile-menu-content">
+          {navLinks.map((link, i) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="mobile-nav-link"
+              onClick={(e) => handleNavClick(e, link.href)}
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
+              <span className="mobile-nav-index">0{i + 1}</span>
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#register"
+            className="btn-register mobile-register"
+            onClick={(e) => handleNavClick(e, '#register')}
+          >
+            [ REGISTER ]
+          </a>
+        </div>
+      </div>
+    </nav>
+  )
+}

@@ -1,0 +1,49 @@
+.loading-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.loading-logo-bracket {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--color-accent-cyan);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.loading-logo-text {
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.3em;
+  text-shadow: 0 0 10px rgba(232, 160, 76, 0.4);
+}
+
+.loading-terminal {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.loading-line {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  opacity: 0;
+  animation: reveal-up 0.5s ease-out forwards;
+}
+
+.loading-line.active {
+  color: var(--color-terminal-green);
+}
+
+.loading-percent {
+  margin-top: 12px;
+  font-size: 0.7rem;
+  color: var(--color-accent-cyan);
+  letter-spacing: 0.2em;
+}

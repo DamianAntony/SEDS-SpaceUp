@@ -1,0 +1,240 @@
+.arcade {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.arcade-header {
+  margin-bottom: 32px;
+}
+
+.arcade-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.arcade-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.arcade-container {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 20px;
+}
+
+.arcade-screen {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #050810;
+  border: 2px solid rgba(78, 205, 196, 0.2);
+}
+
+.arcade-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.arcade-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Overlay */
+.arcade-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 8, 16, 0.85);
+  z-index: 10;
+  gap: 16px;
+}
+
+.arcade-logo {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--color-accent-gold);
+  text-shadow: 0 0 20px rgba(232, 160, 76, 0.4);
+  letter-spacing: 0.15em;
+}
+
+.arcade-instruction {
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
+}
+
+.arcade-start-btn {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent-cyan);
+  background: transparent;
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  padding: 12px 28px;
+  transition: all var(--transition-smooth);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.arcade-start-btn:hover {
+  background: rgba(78, 205, 196, 0.1);
+  border-color: var(--color-accent-cyan);
+}
+
+.arcade-controls {
+  font-size: 0.55rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.12em;
+  margin-top: 8px;
+}
+
+/* Game over */
+.gameover-title {
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  color: #ff3333;
+  text-shadow: 0 0 20px rgba(255, 51, 51, 0.4);
+  letter-spacing: 0.15em;
+  animation: flicker 3s infinite;
+}
+
+.gameover-score {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.1em;
+}
+
+.gameover-value {
+  color: var(--color-accent-gold);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.gameover-highscore {
+  font-size: 0.6rem;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.2em;
+  animation: pulse-dot 1.5s infinite;
+}
+
+/* Sidebar */
+.arcade-sidebar {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.arcade-sidebar-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-cyan);
+  font-weight: 600;
+}
+
+.arcade-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arcade-stat-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+.arcade-stat-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent-gold);
+}
+
+.arcade-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(78, 205, 196, 0.1);
+}
+
+.arcade-tip {
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+
+/* D-Pad controls */
+.arcade-dpad-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.dpad-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-cyan);
+}
+
+.arcade-dpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dpad-row {
+  display: flex;
+  gap: 20px;
+}
+
+.dpad-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(78, 205, 196, 0.08);
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  color: var(--color-accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.dpad-btn:active,
+.dpad-btn:hover {
+  background: rgba(78, 205, 196, 0.3);
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 10px rgba(78, 205, 196, 0.4);
+}
+
+@media (max-width: 768px) {
+  .arcade-container {
+    grid-template-columns: 1fr;
+  }
+
+  .arcade-screen {
+    aspect-ratio: 4 / 3;
+  }
+}
+
