@@ -31,25 +31,44 @@ export default function CustomCursor() {
     }
     window.addEventListener('resize', handleResize)
 
+    // Spawn 16-bit pixel thruster spark
     const handleMouseMove = (e) => {
       if (!hasMoved) setHasMoved(true)
       mousePos.current = { x: e.clientX, y: e.clientY }
 
-      if (Math.random() > 0.5) {
+      if (Math.random() > 0.4) {
         particles.current.push({
-          x: e.clientX + (Math.random() - 0.5) * 10,
-          y: e.clientY + (Math.random() - 0.5) * 10,
-          size: Math.random() * 2 + 0.5,
-          speedX: (Math.random() - 0.5) * 0.8,
-          speedY: (Math.random() - 0.5) * 0.8 - 0.5,
+          x: e.clientX + (Math.random() - 0.5) * 8,
+          y: e.clientY + (Math.random() - 0.5) * 8,
+          size: Math.floor(Math.random() * 3) + 2, // Pixel square size
+          speedX: (Math.random() - 0.5) * 1.2,
+          speedY: (Math.random() - 0.5) * 1.2 + 0.6,
           life: 1,
-          decay: Math.random() * 0.02 + 0.015,
-          color: Math.random() > 0.5 ? '78, 205, 196' : '232, 160, 76',
+          decay: Math.random() * 0.03 + 0.02,
+          color: Math.random() > 0.4 ? '#4ecdc4' : '#e8a04c',
         })
       }
     }
 
-    const handleMouseDown = () => setIsClicking(true)
+    // Spawn retro click burst on click
+    const handleMouseDown = (e) => {
+      setIsClicking(true)
+      for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2
+        const speed = Math.random() * 2 + 1.5
+        particles.current.push({
+          x: e.clientX,
+          y: e.clientY,
+          size: Math.floor(Math.random() * 3) + 2,
+          speedX: Math.cos(angle) * speed,
+          speedY: Math.sin(angle) * speed,
+          life: 1,
+          decay: 0.04,
+          color: i % 2 === 0 ? '#00ff41' : '#e8a04c',
+        })
+      }
+    }
+
     const handleMouseUp = () => setIsClicking(false)
 
     const handleMouseOver = (e) => {
@@ -75,8 +94,9 @@ export default function CustomCursor() {
     document.addEventListener('mouseout', handleMouseOut)
 
     const animate = () => {
-      trailPos.current.x += (mousePos.current.x - trailPos.current.x) * 0.15
-      trailPos.current.y += (mousePos.current.y - trailPos.current.y) * 0.15
+      // Smooth lag for outer reticle ring
+      trailPos.current.x += (mousePos.current.x - trailPos.current.x) * 0.18
+      trailPos.current.y += (mousePos.current.y - trailPos.current.y) * 0.18
 
       if (cursor) {
         cursor.style.transform = `translate(${mousePos.current.x}px, ${mousePos.current.y}px)`
@@ -93,10 +113,11 @@ export default function CustomCursor() {
 
         if (p.life <= 0) return false
 
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.6})`
-        ctx.fill()
+        // Draw 16-bit pixel square particle
+        ctx.fillStyle = p.color
+        ctx.globalAlpha = p.life * 0.8
+        ctx.fillRect(Math.floor(p.x), Math.floor(p.y), p.size, p.size)
+        ctx.globalAlpha = 1.0
         return true
       })
 
@@ -121,19 +142,39 @@ export default function CustomCursor() {
   return (
     <>
       <canvas ref={canvasRef} className="cursor-canvas" />
+
+      {/* Main 16-Bit Reticle Cursor */}
       <div
         ref={cursorRef}
-        className={`custom-cursor ${isHovering ? 'hover' : ''} ${isClicking ? 'click' : ''} ${hasMoved ? 'active' : ''}`}
+        className={`custom-cursor ${isHovering ? 'hover' : ''} ${isClicking ? 'click' : ''} ${
+          hasMoved ? 'active' : ''
+        }`}
         style={{ transform: 'translate(-500px, -500px)' }}
       >
-        <div className="cursor-crosshair">
+        <div className="retro-reticle">
+          {/* Corner brackets */}
+          <span className="corner-bracket top-left" />
+          <span className="corner-bracket top-right" />
+          <span className="corner-bracket bottom-left" />
+          <span className="corner-bracket bottom-right" />
+
+          {/* Crosshair lines */}
           <span className="ch-line ch-top" />
           <span className="ch-line ch-right" />
           <span className="ch-line ch-bottom" />
           <span className="ch-line ch-left" />
+
+          {/* Center Pixel Dot */}
           <span className="ch-dot" />
+
+          {/* Micro Telemetry Badge */}
+          <span className="cursor-tag font-pixel">
+            {isHovering ? 'LOCK' : 'TARGET'}
+          </span>
         </div>
       </div>
+
+      {/* Outer Tracking Box */}
       <div
         ref={trailRef}
         className={`cursor-trail ${isHovering ? 'hover' : ''} ${hasMoved ? 'active' : ''}`}
@@ -142,3 +183,4 @@ export default function CustomCursor() {
     </>
   )
 }
+
