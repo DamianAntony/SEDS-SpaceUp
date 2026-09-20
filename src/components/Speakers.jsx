@@ -147,9 +147,15 @@ export default function Speakers() {
           <p className="font-mono speakers-cta-text">
             Want to lead a session? SpaceUp is participant-driven.
           </p>
-          <button className="btn-register interactive" id="propose-session-btn">
+          <a
+            href="https://spaceup2026.vercel.app/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-register interactive font-mono"
+            id="propose-session-btn"
+          >
             [ PROPOSE A SESSION ]
-          </button>
+          </a>
         </div>
       </div>
     </section>

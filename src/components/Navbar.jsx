@@ -73,6 +73,16 @@ export default function Navbar({ onOpenArcade }) {
           >
             [ 🎮 ARCADE ]
           </button>
+
+          <a
+            href="https://spaceup2026.vercel.app/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-register nav-register-btn font-pixel interactive"
+            id="nav-register-btn"
+          >
+            [ REGISTER ]
+          </a>
         </div>
 
         <button
@@ -118,9 +128,11 @@ export default function Navbar({ onOpenArcade }) {
           </a>
 
           <a
-            href="#register"
+            href="https://spaceup2026.vercel.app/register"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-register mobile-register font-pixel"
-            onClick={(e) => handleNavClick(e, '#register')}
+            onClick={() => setMenuOpen(false)}
           >
             [ REGISTER ]
           </a>

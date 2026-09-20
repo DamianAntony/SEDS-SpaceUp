@@ -102,16 +102,19 @@ export default function Sponsors() {
             <div className="register-details font-mono">
               <span>[DATE] TO BE ANNOUNCED</span>
               <span>[VENUE] CUSAT CAMPUS, KOCHI</span>
-              <span>[STATUS] REGISTRATION OPENING SOON</span>
+              <span>[STATUS] REGISTRATION LIVE</span>
             </div>
-            <button
+            <a
+              href="https://spaceup2026.vercel.app/register"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-register register-main-btn interactive font-mono"
               id="main-register-btn"
             >
               [ REGISTER NOW ]
-            </button>
+            </a>
             <p className="register-fine-print font-mono">
-              Registration system coming soon.
+              Click above to complete your registration.
             </p>
           </div>
         </div>

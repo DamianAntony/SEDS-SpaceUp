@@ -87,13 +87,15 @@ export default function Hero({ onOpenArcade }) {
 
         {/* Action Buttons */}
         <div className="hero-actions">
-          <button
+          <a
+            href="https://spaceup2026.vercel.app/register"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-register hero-btn-main interactive font-pixel"
-            onClick={scrollToRegister}
             id="hero-register-btn"
           >
             [ REGISTER ]
-          </button>
+          </a>
 
           <button
             className="btn-arcade-hero interactive font-pixel"

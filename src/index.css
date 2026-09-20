@@ -313,11 +313,17 @@ a, button, [role="button"], input, textarea, select {
   position: relative;
   overflow: hidden;
   transition: all var(--transition-smooth);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
   &:hover {
     background: rgba(78, 205, 196, 0.15);
     border-color: var(--color-accent-cyan);
     box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+    color: var(--color-accent-cyan);
   }
 }
 

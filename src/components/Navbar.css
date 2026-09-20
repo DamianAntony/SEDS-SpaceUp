@@ -113,6 +113,13 @@
   }
 }
 
+.nav-register-btn {
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
 
 /* Hamburger */
 .nav-hamburger {
