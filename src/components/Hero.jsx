@@ -7,6 +7,7 @@ import saturnImg from '../assets/hero/saturn_clean.png'
 import moonImg from '../assets/hero/moon_clean.png'
 import astronautImg from '../assets/hero/astronaut.png'
 import terrainImg from '../assets/hero/terrain_clean.png'
+import spaceupLogo from '../assets/spaceup26_logo.png'
 
 export default function Hero({ onOpenArcade }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
@@ -20,11 +21,6 @@ export default function Hero({ onOpenArcade }) {
     window.addEventListener('mousemove', handleMouse)
     return () => window.removeEventListener('mousemove', handleMouse)
   }, [])
-
-  const scrollToRegister = () => {
-    const el = document.getElementById('register')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <section className="hero" id="hero">
@@ -75,9 +71,10 @@ export default function Hero({ onOpenArcade }) {
           SEDS CUSAT PRESENTS // INDIA&apos;S BIGGEST SPACE UNCONFERENCE
         </div>
 
-        <h1 className="hero-title font-pixel">
-          SPACEUP <span className="hero-title-cusat">VOL 8</span>
-        </h1>
+        {/* New SpaceUp 26 Logo */}
+        <div className="hero-logo-container">
+          <img src={spaceupLogo} alt="SpaceUp 26 Volume 8" className="hero-logo-img" />
+        </div>
 
         <div className="hero-info font-pixel">
           <span>DATE: TO BE ANNOUNCED</span>
