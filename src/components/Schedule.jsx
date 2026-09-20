@@ -43,7 +43,7 @@ export default function Schedule() {
   return (
     <section className="schedule section-padding" id="schedule">
       <div className="container">
-        <div className="schedule-header scroll-reveal">
+        <div className="schedule-header scroll-reveal-pop">
           <div className="section-tag font-mono">
             <span className="tag-bracket">[</span>
             <span className="tag-number">03</span>
@@ -56,7 +56,7 @@ export default function Schedule() {
         </div>
 
         {/* Day tabs */}
-        <div className="schedule-tabs scroll-reveal">
+        <div className="schedule-tabs scroll-reveal-pop">
           {days.map((day) => (
             <button
               key={day}

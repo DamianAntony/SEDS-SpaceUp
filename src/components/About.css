@@ -245,14 +245,17 @@
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .about-stats {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .about-features {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
@@ -260,4 +263,93 @@
   .about-features {
     grid-template-columns: 1fr;
   }
+
+  .gallery-item {
+    width: 180px;
+    height: 115px;
+  }
+
+  .gallery-item-caption {
+    font-size: 0.46rem;
+    padding: 6px 8px;
+  }
+
+  .about-gallery-container {
+    margin: 30px 0 40px 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    width: 155px;
+    height: 100px;
+  }
+}
+
+/* 3D Floating Gallery Track (TEDxCUSAT-Inspired Image Pop-Out) */
+.about-gallery-container {
+  margin: 40px 0 52px 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.gallery-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: gallery-scroll-left 32s linear infinite;
+  padding: 20px 0;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes gallery-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.gallery-item {
+  position: relative;
+  width: 230px;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  background: rgba(10, 14, 25, 0.9);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.gallery-item:hover {
+  transform: perspective(1000px) translateY(-16px) scale(1.15) rotate(-2deg);
+  border-color: #00E5FF;
+  box-shadow: 0 20px 45px rgba(0, 229, 255, 0.45), 0 0 35px rgba(255, 77, 141, 0.35);
+  z-index: 50;
+}
+
+.gallery-item-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px;
+  background: rgba(6, 8, 20, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--color-accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  text-align: center;
 }

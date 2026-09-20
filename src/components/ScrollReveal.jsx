@@ -7,20 +7,26 @@ export default function ScrollReveal({ children }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const revealElements = entry.target.querySelectorAll(
+            '.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale, .scroll-reveal-pop'
+          )
+
           if (entry.isIntersecting) {
-            // Reveal all scroll-reveal children
-            const revealElements = entry.target.querySelectorAll(
-              '.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'
-            )
+            // Reveal with staggered delay each time element enters viewport
             revealElements.forEach((el, i) => {
               setTimeout(() => {
                 el.classList.add('revealed')
-              }, i * 100)
+              }, i * 90)
+            })
+          } else {
+            // Reset state when out of view so animation repeats every time
+            revealElements.forEach((el) => {
+              el.classList.remove('revealed')
             })
           }
         })
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
     )
 
     if (ref.current) {

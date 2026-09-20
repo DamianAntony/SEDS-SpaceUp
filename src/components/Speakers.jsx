@@ -52,8 +52,10 @@ export default function Speakers() {
 
   return (
     <section className="speakers section-padding" id="speakers">
+      {/* Background Spotlight Cone Beam (TEDxCUSAT-Style) */}
+      <div className="speaker-spotlight-beam" />
       <div className="container">
-        <div className="speakers-header scroll-reveal">
+        <div className="speakers-header scroll-reveal-pop">
           <div className="section-tag font-mono">
             <span className="tag-bracket">[</span>
             <span className="tag-number">02</span>

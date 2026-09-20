@@ -76,6 +76,55 @@ export default function About() {
           </div>
         </div>
 
+        {/* 3D Floating Gallery Track (TEDxCUSAT-Inspired Image Pop-Out) */}
+        <div className="about-gallery-container scroll-reveal-pop">
+          <div className="gallery-track">
+            {[
+              { title: 'ROCKET LAUNCH SIMULATION', color: '#00E5FF', bg: 'linear-gradient(135deg, #0d1b2a, #1b263b)' },
+              { title: 'SATELLITE WORKSHOP', color: '#FF4D8D', bg: 'linear-gradient(135deg, #2b091e, #3a0ca3)' },
+              { title: 'DEEP SPACE EXPLORATION', color: '#9B5DE5', bg: 'linear-gradient(135deg, #18002e, #480ca8)' },
+              { title: 'ASTRONOMY & KEYNOTES', color: '#00E5FF', bg: 'linear-gradient(135deg, #001219, #005f73)' },
+              { title: 'UNCONFERENCE GRID', color: '#FF4D8D', bg: 'linear-gradient(135deg, #38040e, #6b0504)' },
+              { title: 'SEDS CUSAT COMMUNITY', color: '#9B5DE5', bg: 'linear-gradient(135deg, #10002b, #240046)' },
+              { title: 'ROCKET LAUNCH SIMULATION', color: '#00E5FF', bg: 'linear-gradient(135deg, #0d1b2a, #1b263b)' },
+              { title: 'SATELLITE WORKSHOP', color: '#FF4D8D', bg: 'linear-gradient(135deg, #2b091e, #3a0ca3)' },
+              { title: 'DEEP SPACE EXPLORATION', color: '#9B5DE5', bg: 'linear-gradient(135deg, #18002e, #480ca8)' },
+              { title: 'ASTRONOMY & KEYNOTES', color: '#00E5FF', bg: 'linear-gradient(135deg, #001219, #005f73)' },
+              { title: 'UNCONFERENCE GRID', color: '#FF4D8D', bg: 'linear-gradient(135deg, #38040e, #6b0504)' },
+              { title: 'SEDS CUSAT COMMUNITY', color: '#9B5DE5', bg: 'linear-gradient(135deg, #10002b, #240046)' },
+            ].map((item, idx) => (
+              <div key={idx} className="gallery-item interactive">
+                <div
+                  className="gallery-item-graphic"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    background: item.bg,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    padding: '16px',
+                    position: 'relative',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '1.8rem',
+                      marginBottom: '8px',
+                      color: item.color,
+                      textShadow: `0 0 15px ${item.color}`,
+                    }}
+                  >
+                    ✦
+                  </div>
+                  <div className="gallery-item-caption">{item.title}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Features */}
         <div className="about-features">
           {[

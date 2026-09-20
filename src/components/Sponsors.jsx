@@ -37,7 +37,7 @@ export default function Sponsors() {
   return (
     <section className="sponsors section-padding" id="sponsors">
       <div className="container">
-        <div className="sponsors-header scroll-reveal">
+        <div className="sponsors-header scroll-reveal-pop">
           <div className="section-tag font-mono">
             <span className="tag-bracket">[</span>
             <span className="tag-number">04</span>
@@ -53,7 +53,7 @@ export default function Sponsors() {
         </div>
 
         {sponsorTiers.map((tier) => (
-          <div key={tier.tier} className="sponsor-tier scroll-reveal">
+          <div key={tier.tier} className="sponsor-tier scroll-reveal-pop">
             <h3
               className="tier-name font-mono"
               style={{ color: tier.tierColor }}
@@ -66,7 +66,7 @@ export default function Sponsors() {
               {tier.sponsors.map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className="sponsor-card glass-card interactive"
+                  className="sponsor-card glass-card img-pop-card interactive"
                   onMouseEnter={() => setHoveredSponsor(sponsor.name)}
                   onMouseLeave={() => setHoveredSponsor(null)}
                 >
@@ -88,8 +88,8 @@ export default function Sponsors() {
         ))}
 
         {/* Registration CTA */}
-        <div className="register-cta scroll-reveal" id="register">
-          <div className="register-cta-inner glass-card">
+        <div className="register-cta scroll-reveal-pop" id="register">
+          <div className="register-cta-inner glass-card img-pop-card">
             <div className="register-glow" />
             <h3 className="register-title font-display">
               READY FOR <span className="text-accent-gold">LAUNCH</span>?
