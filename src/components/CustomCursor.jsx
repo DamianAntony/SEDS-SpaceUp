@@ -45,7 +45,7 @@ export default function CustomCursor() {
           speedY: (Math.random() - 0.5) * 1.2 + 0.6,
           life: 1,
           decay: Math.random() * 0.03 + 0.02,
-          color: Math.random() > 0.4 ? '#4ecdc4' : '#e8a04c',
+          color: Math.random() > 0.4 ? '#00E5FF' : '#FF4D8D',
         })
       }
     }
@@ -64,7 +64,7 @@ export default function CustomCursor() {
           speedY: Math.sin(angle) * speed,
           life: 1,
           decay: 0.04,
-          color: i % 2 === 0 ? '#00ff41' : '#e8a04c',
+          color: i % 2 === 0 ? '#00E5FF' : '#9B5DE5',
         })
       }
     }

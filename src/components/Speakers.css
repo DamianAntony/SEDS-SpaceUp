@@ -17,7 +17,7 @@
 
 .text-accent-gold {
   color: var(--color-accent-gold);
-  text-shadow: 0 0 20px rgba(232, 160, 76, 0.3);
+  text-shadow: 0 0 20px rgba(255, 77, 141, 0.3);
 }
 
 .speakers-subtitle {
@@ -173,7 +173,7 @@
 .speaker-back-divider {
   width: 100%;
   height: 1px;
-  background: rgba(78, 205, 196, 0.15);
+  background: rgba(0, 229, 255, 0.15);
   margin-bottom: 16px;
 }
 

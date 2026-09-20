@@ -25,7 +25,7 @@
   color: var(--color-accent-gold);
   letter-spacing: 0.15em;
   margin-bottom: 4px;
-  text-shadow: 0 0 10px rgba(232, 160, 76, 0.3);
+  text-shadow: 0 0 10px rgba(255, 77, 141, 0.3);
 }
 
 .footer-logo-sub {
@@ -92,7 +92,7 @@
 
 /* Bottom */
 .footer-bottom {
-  border-top: 1px solid rgba(78, 205, 196, 0.08);
+  border-top: 1px solid rgba(0, 229, 255, 0.08);
   padding-top: 24px;
   text-align: center;
   display: flex;

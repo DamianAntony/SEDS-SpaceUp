@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { retroAudio } from '../utils/audio'
 import './ArcadeGamePage.css'
 
 export default function ArcadeGamePage({ onBack }) {
   const canvasRef = useRef(null)
   const [gameState, setGameState] = useState('idle') // idle, playing, gameover
   const [score, setScore] = useState(0)
+  const [isMuted, setIsMuted] = useState(false)
   const [highScore, setHighScore] = useState(() => {
     return parseInt(localStorage.getItem('spaceup-highscore') || '0', 10)
   })
@@ -21,6 +23,17 @@ export default function ArcadeGamePage({ onBack }) {
     highScoreRef.current = highScore
   }, [highScore])
 
+  useEffect(() => {
+    return () => {
+      retroAudio.stopBgMusic()
+    }
+  }, [])
+
+  const toggleAudioMute = () => {
+    const mutedState = retroAudio.toggleMute()
+    setIsMuted(mutedState)
+  }
+
   const updateGameState = (newState) => {
     gameStateRef.current = newState
     setGameState(newState)
@@ -34,6 +47,9 @@ export default function ArcadeGamePage({ onBack }) {
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current)
     }
+
+    retroAudio.playStartSound()
+    retroAudio.startBgMusic()
 
     updateGameState('playing')
     scoreRef.current = 0
@@ -150,6 +166,7 @@ export default function ArcadeGamePage({ onBack }) {
         ship.bullets.push({ x: ship.x - 6, y: ship.y - 12, speed: 8 })
         ship.bullets.push({ x: ship.x + 6, y: ship.y - 12, speed: 8 })
         ship.bulletCooldown = 10
+        retroAudio.playLaser()
       }
 
       // 4. Update Bullets
@@ -160,9 +177,9 @@ export default function ArcadeGamePage({ onBack }) {
         ctx.beginPath()
         ctx.moveTo(b.x, b.y)
         ctx.lineTo(b.x, b.y + 10)
-        ctx.strokeStyle = '#4ecdc4'
+        ctx.strokeStyle = '#00E5FF'
         ctx.lineWidth = 2.5
-        ctx.shadowColor = '#4ecdc4'
+        ctx.shadowColor = '#00E5FF'
         ctx.shadowBlur = 6
         ctx.stroke()
         ctx.shadowBlur = 0
@@ -174,7 +191,8 @@ export default function ArcadeGamePage({ onBack }) {
           const dist = Math.hypot(dx, dy)
 
           if (dist < a.size + 4) {
-            spawnExplosion(a.x, a.y, '#e8a04c', 12)
+            spawnExplosion(a.x, a.y, '#FF4D8D', 12)
+            retroAudio.playExplosion()
             asteroids.splice(i, 1)
 
             scoreRef.current += 10
@@ -212,9 +230,9 @@ export default function ArcadeGamePage({ onBack }) {
           else ctx.lineTo(px, py)
         }
         ctx.closePath()
-        ctx.fillStyle = 'rgba(70, 60, 50, 0.85)'
+        ctx.fillStyle = 'rgba(40, 20, 50, 0.85)'
         ctx.fill()
-        ctx.strokeStyle = '#e8a04c'
+        ctx.strokeStyle = '#FF4D8D'
         ctx.lineWidth = 1.5
         ctx.stroke()
         ctx.restore()
@@ -240,7 +258,7 @@ export default function ArcadeGamePage({ onBack }) {
         ctx.fillStyle =
           p.color === '#ff3333'
             ? `rgba(255, 51, 51, ${p.life})`
-            : `rgba(232, 160, 76, ${p.life})`
+            : `rgba(255, 77, 141, ${p.life})`
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2)
         ctx.fill()
@@ -257,14 +275,14 @@ export default function ArcadeGamePage({ onBack }) {
           ctx.moveTo(-5, 12)
           ctx.lineTo(0, 12 + Math.random() * 10 + 6)
           ctx.lineTo(5, 12)
-          ctx.fillStyle = '#ff6b35'
+          ctx.fillStyle = '#FF4D8D'
           ctx.fill()
 
           ctx.beginPath()
           ctx.moveTo(-2, 12)
           ctx.lineTo(0, 12 + Math.random() * 5 + 3)
           ctx.lineTo(2, 12)
-          ctx.fillStyle = '#4ecdc4'
+          ctx.fillStyle = '#00E5FF'
           ctx.fill()
         }
 
@@ -276,23 +294,26 @@ export default function ArcadeGamePage({ onBack }) {
         ctx.lineTo(6, 8)
         ctx.lineTo(12, 12)
         ctx.closePath()
-        ctx.fillStyle = '#162238'
+        ctx.fillStyle = '#110c22'
         ctx.fill()
-        ctx.strokeStyle = '#4ecdc4'
+        ctx.strokeStyle = '#00E5FF'
         ctx.lineWidth = 2
-        ctx.shadowColor = '#4ecdc4'
+        ctx.shadowColor = '#00E5FF'
         ctx.shadowBlur = 8
         ctx.stroke()
         ctx.shadowBlur = 0
 
         ctx.beginPath()
         ctx.arc(0, 0, 3, 0, Math.PI * 2)
-        ctx.fillStyle = '#e8a04c'
+        ctx.fillStyle = '#FF4D8D'
         ctx.fill()
 
         ctx.restore()
       } else {
         spawnExplosion(ship.x, ship.y, '#ff3333', 25)
+        retroAudio.playExplosion()
+        retroAudio.playGameOverSound()
+        retroAudio.stopBgMusic()
 
         const finalScore = scoreRef.current
         if (finalScore > highScoreRef.current) {
@@ -305,7 +326,7 @@ export default function ArcadeGamePage({ onBack }) {
       }
 
       ctx.font = '12px "Share Tech Mono", monospace'
-      ctx.fillStyle = '#4ecdc4'
+      ctx.fillStyle = '#00E5FF'
       ctx.textAlign = 'left'
       ctx.fillText(`SCORE: ${scoreRef.current}`, 12, 22)
       ctx.textAlign = 'right'
@@ -373,8 +394,23 @@ export default function ArcadeGamePage({ onBack }) {
           [ &larr; BACK TO MISSION ]
         </button>
         <div className="arcade-page-title font-pixel">ASTEROID BELT ARCADE</div>
-        <div className="arcade-page-score font-mono">
-          HIGH SCORE: <span className="text-accent-gold">{highScore}</span>
+        <div className="arcade-page-score font-mono" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <span>HIGH SCORE: <span className="text-accent-gold">{highScore}</span></span>
+          <button
+            className="btn-sound-toggle font-mono interactive"
+            onClick={toggleAudioMute}
+            style={{
+              padding: '4px 12px',
+              background: 'rgba(0, 229, 255, 0.1)',
+              border: '1px solid rgba(0, 229, 255, 0.4)',
+              borderRadius: '4px',
+              color: '#00E5FF',
+              cursor: 'pointer',
+              fontSize: '0.75rem',
+            }}
+          >
+            {isMuted ? '🔇 SOUND: OFF' : '🔊 SOUND: ON'}
+          </button>
         </div>
       </div>
 

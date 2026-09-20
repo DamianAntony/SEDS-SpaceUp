@@ -12,7 +12,7 @@ const sponsorTiers = [
   },
   {
     tier: 'GOLD TRAJECTORY',
-    tierColor: '#e8a04c',
+    tierColor: '#FF4D8D',
     sponsors: [
       { name: 'GOLD PARTNER 01', desc: 'Sponsor slot available. Contact SEDS CUSAT.' },
       { name: 'GOLD PARTNER 02', desc: 'Sponsor slot available. Contact SEDS CUSAT.' },

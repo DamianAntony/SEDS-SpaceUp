@@ -26,10 +26,10 @@ const scheduleData = {
 }
 
 const typeColors = {
-  keynote: '#e8a04c',
-  session: '#4ecdc4',
-  interactive: '#9b59b6',
-  workshop: '#ff6b35',
+  keynote: '#FF4D8D',
+  session: '#00E5FF',
+  interactive: '#9B5DE5',
+  workshop: '#7B2FBE',
   break: '#5a6478',
   social: '#27c93f',
   logistics: '#5a6478',

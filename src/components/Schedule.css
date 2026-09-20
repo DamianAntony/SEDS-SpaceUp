@@ -26,21 +26,21 @@
   letter-spacing: 0.12em;
   color: var(--color-text-muted);
   background: rgba(13, 18, 32, 0.5);
-  border: 1px solid rgba(78, 205, 196, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.1);
   padding: 10px 20px;
   transition: all var(--transition-smooth);
 }
 
 .schedule-tab:hover {
-  border-color: rgba(78, 205, 196, 0.3);
+  border-color: rgba(0, 229, 255, 0.3);
   color: var(--color-text-primary);
 }
 
 .schedule-tab.active {
-  background: rgba(78, 205, 196, 0.08);
+  background: rgba(0, 229, 255, 0.08);
   border-color: var(--color-accent-cyan);
   color: var(--color-accent-cyan);
-  box-shadow: 0 0 15px rgba(78, 205, 196, 0.1);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
 }
 
 /* Timeline */
@@ -84,7 +84,7 @@
   width: 1px;
   flex: 1;
   min-height: 30px;
-  background: rgba(78, 205, 196, 0.1);
+  background: rgba(0, 229, 255, 0.1);
 }
 
 .timeline-time {
@@ -101,7 +101,7 @@
 }
 
 .timeline-item:hover .timeline-content {
-  border-color: rgba(78, 205, 196, 0.25);
+  border-color: rgba(0, 229, 255, 0.25);
 }
 
 .timeline-content-header {

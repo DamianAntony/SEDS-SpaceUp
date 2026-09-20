@@ -3,10 +3,10 @@ import './Hero.css'
 
 import nebulaBg from '../assets/hero/nebula.png'
 import starsBg from '../assets/hero/stars_clean.png'
-import saturnImg from '../assets/hero/saturn_clean.png'
-import moonImg from '../assets/hero/moon_clean.png'
-import astronautImg from '../assets/hero/astronaut.png'
-import terrainImg from '../assets/hero/terrain_clean.png'
+import saturnImg from '../assets/hero/saturn_trans.png'
+import moonImg from '../assets/hero/moon_trans.png'
+import astronautImg from '../assets/hero/astronaut_trans.png'
+import terrainImg from '../assets/hero/terrain_trans.png'
 import spaceupLogo from '../assets/spaceup26_logo.png'
 
 export default function Hero({ onOpenArcade }) {
