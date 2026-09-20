@@ -76,7 +76,7 @@ export default function Hero({ onOpenArcade }) {
         </div>
 
         <h1 className="hero-title font-pixel">
-          SPACEUP <span className="hero-title-cusat">CUSAT</span>
+          SPACEUP <span className="hero-title-cusat">VOL 8</span>
         </h1>
 
         <div className="hero-info font-pixel">
