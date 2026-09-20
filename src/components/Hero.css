@@ -317,13 +317,13 @@
   }
 
   .hero-layer-astronaut {
-    width: 90px;
-    top: 38%;
+    width: 85px;
+    top: 42%;
   }
 
   .hero-saturn-moon-wrapper {
-    width: 300px;
-    top: 10px;
+    width: 280px;
+    top: 75px;
   }
 }
 
@@ -387,12 +387,12 @@
   }
 
   .hero-saturn-moon-wrapper {
-    width: 240px;
-    top: 10px;
+    width: 230px;
+    top: 70px;
   }
 
   .hero-layer-astronaut {
     width: 65px;
-    top: 36%;
+    top: 40%;
   }
 }
