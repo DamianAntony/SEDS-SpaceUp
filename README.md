@@ -1,183 +1,201 @@
-# 🚀 SpaceUp CUSAT — Official Web Platform
+<![CDATA[<div align="center">
 
-> **SpaceUp CUSAT** is a retro pixel-art space-themed web application built for **SEDS CUSAT** (Students for the Exploration and Development of Space - CUSAT Chapter at Cochin University of Science and Technology). Designed for high visual impact, smooth scroll-driven animations, rich interactivity, and an embedded 60FPS space arcade shooter.
+# 🚀 SpaceUp CUSAT — Vol 8
+
+### India's Biggest Space Unconference
+
+**Built by [SEDS CUSAT](https://github.com/DamianAntony/SEDS-SpaceUp) — Students for the Exploration and Development of Space, CUSAT Chapter**
+
+<br/>
+
+<img src="./src/assets/spaceup_cusat_logo.png" alt="SpaceUp CUSAT Logo" width="420" />
+
+<br/><br/>
+
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![Vite](https://img.shields.io/badge/Vite-6.0.0-646CFF?logo=vite&logoColor=white&style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
+![CSS3](https://img.shields.io/badge/CSS3-Custom_Properties-1572B6?logo=css3&logoColor=white&style=for-the-badge)
+
+</div>
 
 ---
 
-## 📌 Project Synopsis
-
-**SpaceUp CUSAT** serves as the flagship digital portal for the upcoming space unconference organized by SEDS CUSAT. Unlike traditional conferences with rigid timetables, SpaceUp is a **participant-driven unconference** where attendees propose sessions, vote on topics, and shape the agenda live.
-
-### Core Objectives:
-1. **Engaging Frontend Experience**: Captivate students, space enthusiasts, and researchers with modern cyberpunk & retro space UI aesthetics, dynamic starfields, mouse parallax, and CRT scanline overlays.
-2. **Modular Placeholder Architecture**: All section containers, schedule timelines, speaker cards, and sponsor grids maintain structural spacing while leaving text/names as easily editable placeholders until official announcements.
-3. **Interactive Mini-Game**: Features an embedded, zero-dependency 60FPS canvas space shooter ("Asteroid Belt") with dual auto-lasers, D-Pad touch controls, and local high-score tracking.
-4. **Backend Ready**: Registration and session submission buttons are pre-wired with descriptive HTML IDs (`#hero-register-btn`, `#main-register-btn`, `#propose-session-btn`) for straightforward API integration.
-
----
-
-## 🖼️ UI Demo & Visual Showcase
+## 🖼️ Preview
 
 ![SpaceUp CUSAT Demo Preview](./public/demo_preview.png)
-*Figure 1: SpaceUp CUSAT retro space interface featuring dark-mode hero banner, terminal mission brief logs, 3D crew cards, and embedded Asteroid Arcade mini-game.*
+*SpaceUp CUSAT — 16-Bit retro arcade space interface with parallax hero, custom cursor, embedded arcade, and cyberpunk UI.*
 
 ---
 
-## 📸 Tech Stack & Badges
+## 📌 About
 
+**SpaceUp** is a participant-driven **space unconference** — no fixed agenda, no passive audiences. Attendees propose sessions, vote on topics, and shape the event in real-time. This website serves as the flagship digital portal for **SpaceUp Vol 8**, organized by SEDS CUSAT at Cochin University of Science and Technology, Kochi.
 
-![React](https://img.shields.io/badge/React-19.1.0-blue?logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-6.0.0-646CFF?logo=vite&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
-![CSS3](https://img.shields.io/badge/CSS3-Custom_Properties-1572B6?logo=css3&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-Semantic-E34F26?logo=html5&logoColor=white)
-![License](https://img.shields.io/badge/License-SEDS_CUSAT-gold)
+The platform is built to captivate visitors with a **16-bit retro arcade space aesthetic** — dynamic starfields, CRT overlays, pixel fonts, mouse-parallax hero layers, and an embedded space shooter mini-game.
 
 ---
 
-## ✨ Features Overview
+## ✨ Features
 
-### 🎨 Retro Space Aesthetics & Animations
-- **Custom Space Cursor** ([CustomCursor.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/CustomCursor.jsx)): Canvas-driven crosshair cursor with animated star particle trails and element hover detection.
-- **Twinkling Starfield & Meteors** ([StarField.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/StarField.jsx)): Dynamic canvas background with twinkling stars and passing shooting stars.
-- **Parallax Hero** ([Hero.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Hero.jsx)): Layered Saturn planet, moon, and terrain responding smoothly to mouse movement.
-- **TEDxCUSAT-Style Scroll Reveal** ([ScrollReveal.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/ScrollReveal.jsx)): `IntersectionObserver`-powered reveal animations for smooth entrance transitions.
-- **Terminal Boot Loading Screen** ([LoadingScreen.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/LoadingScreen.jsx)): Retro CLI boot sequence with progress bar.
-- **Marquee Ticker** ([MarqueeStrip.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/MarqueeStrip.jsx)): Infinite scrolling keyword strip.
+### 🎨 Visual Design & Animations
+| Feature | Description |
+|---|---|
+| **Parallax Hero** | 5-layer scene — nebula, stars, Saturn + moon, floating astronaut, and terrain — all responding to mouse movement |
+| **Custom Space Cursor** | Canvas-driven crosshair with animated star particle trails and element hover detection |
+| **Twinkling Starfield** | Dynamic canvas background with twinkling stars and passing shooting stars |
+| **CRT Scanline Overlay** | Full-screen retro CRT effect layered over all content |
+| **Terminal Boot Loader** | CLI-style boot sequence with progress bar on initial load |
+| **Scroll Reveal** | `IntersectionObserver`-powered entrance animations for every section |
+| **Marquee Ticker** | Infinite scrolling keyword strip between hero and content |
+| **SpaceUp CUSAT Logo** | Official branding in navbar (with hover glow) and hero section |
 
-### 📑 Content & Placeholder Architecture
-All sections preserve their grid layouts, containers, and card structures so spacing remains flawless while upcoming event details can be populated:
-- **About Mission** ([About.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/About.jsx)): Mission overview, animated stats, and feature cards.
-- **Crew Manifest (Speakers)** ([Speakers.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Speakers.jsx)): 3D flip cards with neon avatar badges (`SP1`–`SP6`) and placeholder speaker details.
-- **Flight Plan (Schedule)** ([Schedule.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Schedule.jsx)): Tabbed days (`DAY 01 (DATE TBA)`, `DAY 02 (DATE TBA)`) with expandable timeline entries.
-- **Launch Partners (Sponsors)** ([Sponsors.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Sponsors.jsx)): Platinum, Gold, and Silver tier cards with scanline hover effects.
-- **Comms & Telemetry** ([Footer.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Footer.jsx)): Chapter contacts (`seds@cusat.ac.in`) and CUSAT campus telemetry coordinates (`10.0435° N, 76.3242° E`).
+### 📑 Content Sections
+| Section | Component | Description |
+|---|---|---|
+| **Hero** | `Hero.jsx` | Parallax space scene with SpaceUp 26 logo, date/venue info, Register & Play Arcade CTAs |
+| **About** | `About.jsx` | Mission overview, animated stat counters, feature cards |
+| **Speakers** | `Speakers.jsx` | 3D flip cards with neon avatar badges and placeholder speaker details |
+| **Schedule** | `Schedule.jsx` | Tabbed day switcher with expandable timeline entries |
+| **Sponsors** | `Sponsors.jsx` | Platinum, Gold, Silver tier cards with scanline hover effects |
+| **Footer** | `Footer.jsx` | SEDS CUSAT contacts, CUSAT campus telemetry coordinates |
 
-### 🕹️ Space Arcade Mini-Game ([ArcadeGame.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/ArcadeGame.jsx))
-- **Ref-Backed 60FPS Game Engine**: Uses mutable `useRef` state to eliminate React closure races during high-frame-rate execution.
-- **Controls**: Arrow Keys, WASD, Spacebar, touch drag tracking for mobile, and on-screen D-Pad buttons.
-- **Mechanics**: Dual auto-firing cyan lasers, randomized asteroid polygon generation, particle explosions, progressive difficulty scaling, and `localStorage` high score saving.
+### 🕹️ Space Arcade Mini-Game
+- **Full-Screen Arcade Page** — toggleable from the navbar or hero section
+- **Ref-Backed 60FPS Engine** — mutable `useRef` state to eliminate React closure races
+- **Controls** — Arrow keys, WASD, Spacebar, touch drag, and on-screen D-Pad for mobile
+- **Mechanics** — Dual auto-firing cyan lasers, procedural asteroid polygons, particle explosions, progressive difficulty, and `localStorage` high score persistence
+- **Audio System** — Procedural Web Audio API sound effects (laser fire, explosions, power-ups, game over) with global mute toggle
+
+### 🔧 Developer-Friendly Architecture
+- **Pre-wired Registration** — Buttons with unique IDs (`#hero-register-btn`, `#nav-register-btn`) linked to `https://spaceup2026.vercel.app/register`
+- **Modular Placeholder System** — All sections preserve grid layouts and card structures for easy content population
+- **Responsive Design** — Fully responsive across desktop, tablet, and mobile with dedicated mobile menu overlay
 
 ---
 
-## 📁 Directory & Code Walkthrough
+## 📁 Project Structure
 
 ```
 SEDS-SpaceUp/
 ├── public/
-│   └── favicon.svg           # Space rocket SVG favicon
+│   ├── favicon.png                # SpaceUp CUSAT logo favicon
+│   ├── apple-touch-icon.png       # iOS home screen icon
+│   ├── demo_preview.png           # README preview screenshot
+│   └── icons.svg                  # Icon sprites
 ├── src/
-│   ├── components/           # Component modular library
-│   │   ├── About.jsx         # Mission brief terminal & stats
-│   │   ├── About.css         # About section styling
-│   │   ├── ArcadeGame.jsx    # Ref-backed space arcade shooter
-│   │   ├── ArcadeGame.css    # Arcade CRT screen & D-Pad styles
-│   │   ├── CustomCursor.jsx  # Particle trail crosshair cursor
-│   │   ├── CustomCursor.css  # Cursor styles
-│   │   ├── Footer.jsx        # Telemetry & contact footer
-│   │   ├── Footer.css        # Footer styles
-│   │   ├── Hero.jsx          # Parallax layers & launch info
-│   │   ├── Hero.css          # Hero styles & Saturn CSS art
-│   │   ├── LoadingScreen.jsx # Retro CLI loading animation
-│   │   ├── LoadingScreen.css # Terminal loader styling
-│   │   ├── MarqueeStrip.jsx  # Infinite scrolling ticker band
-│   │   ├── MarqueeStrip.css  # Marquee track styling
-│   │   ├── Navbar.jsx        # Fixed glassmorphism nav & signal monitor
-│   │   ├── Navbar.css        # Navbar & mobile menu drawer styles
-│   │   ├── Schedule.jsx      # Interactive timeline & day switcher
-│   │   ├── Schedule.css      # Timeline styling
-│   │   ├── ScrollReveal.jsx  # Scroll-triggered entrance wrapper
-│   │   ├── Speakers.jsx      # 3D card flip crew manifest
-│   │   ├── Speakers.css      # Speaker card flip styles
-│   │   ├── Sponsors.jsx      # Tiered sponsors & registration CTA
-│   │   ├── Sponsors.css      # Sponsor card styles
-│   │   ├── StarField.jsx     # Canvas twinkling stars background
-│   │   └── StarField.css     # Canvas background layout
-│   ├── App.jsx               # Application root & section layout
-│   ├── main.jsx              # React DOM render entry point
-│   └── index.css             # CSS design system (tokens, fonts, utilities)
-├── index.html                # Entry HTML with meta tags & Google Fonts
-├── package.json              # Project dependencies & scripts
-└── vite.config.js            # Vite build configuration (Port 3000)
+│   ├── assets/
+│   │   ├── hero/                  # Parallax hero layers (nebula, stars, saturn, moon, astronaut, terrain)
+│   │   ├── spaceup26_logo.png     # SpaceUp Vol 8 event logo (hero section)
+│   │   ├── spaceup_cusat_logo.png # SpaceUp CUSAT branding logo (navbar + favicon)
+│   │   └── spaceup_logo.png       # Legacy logo
+│   ├── components/
+│   │   ├── About.jsx / .css       # Mission brief terminal & stats
+│   │   ├── ArcadeGame.jsx / .css  # Canvas space shooter engine
+│   │   ├── ArcadeGamePage.jsx / .css  # Full-screen arcade wrapper
+│   │   ├── CustomCursor.jsx / .css    # Particle trail crosshair cursor
+│   │   ├── Footer.jsx / .css      # Telemetry & contact footer
+│   │   ├── Hero.jsx / .css        # Parallax layers & launch info
+│   │   ├── LoadingScreen.jsx / .css   # Retro CLI loading animation
+│   │   ├── MarqueeStrip.jsx / .css    # Infinite scrolling ticker
+│   │   ├── Navbar.jsx / .css      # Fixed glassmorphism nav with logo & signal monitor
+│   │   ├── Schedule.jsx / .css    # Interactive timeline & day switcher
+│   │   ├── ScrollReveal.jsx       # Scroll-triggered entrance wrapper
+│   │   ├── Speakers.jsx / .css    # 3D card flip crew manifest
+│   │   ├── Sponsors.jsx / .css    # Tiered sponsors & registration CTA
+│   │   └── StarField.jsx         # Canvas twinkling stars background
+│   ├── utils/
+│   │   └── audio.js              # Web Audio API procedural sound effects
+│   ├── App.jsx                    # Application root & view routing (home / arcade)
+│   ├── main.jsx                   # React DOM render entry point
+│   └── index.css                  # Global design system (tokens, fonts, utilities)
+├── index.html                     # Entry HTML with meta tags & Google Fonts
+├── package.json                   # Project dependencies & scripts
+└── vite.config.js                 # Vite build config (Port 3000, auto-open)
 ```
 
 ---
 
-## 🛠️ Getting Started & Local Setup
+## 🛠️ Getting Started
 
 ### Prerequisites
-Ensure you have **Node.js** (v18.0.0 or higher) and **npm** installed on your machine.
+- **Node.js** v18.0.0 or higher
+- **npm** (comes with Node.js)
 
-### 1. Clone & Install Dependencies
+### Setup & Run
+
 ```bash
-# Clone repository
-git clone <repository-url>
+# 1. Clone the repository
+git clone https://github.com/DamianAntony/SEDS-SpaceUp.git
 cd SEDS-SpaceUp
 
-# Install dependencies
+# 2. Install dependencies
 npm install
-```
 
-### 2. Start Development Server
-```bash
+# 3. Start development server (opens at http://localhost:3000)
 npm run dev
-```
-The application will launch automatically at `http://localhost:3000`.
 
-### 3. Build for Production
-```bash
+# 4. Build for production
 npm run build
-```
-Generates an optimized production build in the `dist/` directory.
 
-### 4. Preview Production Build
-```bash
+# 5. Preview production build
 npm run preview
 ```
 
 ---
 
-## 🛠️ Guide for Coworkers & Future Updates
+## 🎨 Design System
 
-### Updating Placeholder Content
-When event dates, venue details, speaker profiles, or sponsors are finalized, update the following data files:
+The entire UI is driven by CSS custom properties defined in `src/index.css`:
 
-1. **Dates & Venue**:
-   - Edit [Hero.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Hero.jsx): Update `hero-info` text and target timestamp in the `useEffect` countdown.
-   - Edit [Sponsors.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Sponsors.jsx): Update `register-details` text.
+### Color Palette
+| Token | Value | Usage |
+|---|---|---|
+| `--color-bg-deep` | `#07080f` | Deep space background |
+| `--color-bg-primary` | `#0a0e17` | Primary background |
+| `--color-accent-gold` | `#FF4D8D` | Primary pink accent (buttons, highlights) |
+| `--color-accent-cyan` | `#00E5FF` | Cyan accent (links, borders, glow) |
+| `--color-accent-orange` | `#9B5DE5` | Purple accent (effects, gradients) |
+| `--color-terminal-green` | `#00ff41` | Terminal / signal indicator green |
 
-2. **Speaker Manifest**:
-   - Edit [Speakers.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Speakers.jsx): Update the `speakers` array with speaker names, titles, bios, topics, and color accents.
+### Typography
+All text uses the **Press Start 2P** pixel font to enforce the 16-bit retro aesthetic globally.
 
-3. **Schedule / Timeline**:
-   - Edit [Schedule.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Schedule.jsx): Modify the `scheduleData` object to update times, session titles, event types, and descriptions.
-
-4. **Sponsor Logos**:
-   - Edit [Sponsors.jsx](file:///c:/Users/hp/Desktop/SEDS/SpaceUp/SEDS-SpaceUp/src/components/Sponsors.jsx): Replace placeholder names in `sponsorTiers` with company names or image paths.
-
-5. **Connecting Backend Registrations**:
-   - The registration action buttons are pre-configured with unique element IDs:
-     - `#hero-register-btn` (Hero section)
-     - `#main-register-btn` (Sponsors/Registration CTA)
-     - `#propose-session-btn` (Speakers section)
-     - `#become-sponsor-btn` (Sponsors CTA)
-   - Connect modal triggers or API submission handlers to these IDs in React state or custom event handlers.
+```css
+--font-pixel: 'Press Start 2P', monospace;
+```
 
 ---
 
-## 🎨 Design Tokens (`src/index.css`)
+## 📝 Guide for Coworkers
 
-- `--color-space-black`: `#07080f` (Primary deep space background)
-- `--color-accent-gold`: `#e8a04c` (Primary brand accent)
-- `--color-accent-cyan`: `#4ecdc4` (Secondary cyber accent)
-- `--color-accent-orange`: `#ff6b35` (Warning / Highlight accent)
-- `--font-pixel`: `'Press Start 2P', monospace`
-- `--font-mono`: `'Share Tech Mono', monospace`
-- `--font-display`: `'Orbitron', sans-serif`
-- `--font-body`: `'Inter', sans-serif`
+### Updating Event Content
+
+| What to Update | Where |
+|---|---|
+| **Date & Venue** | `Hero.jsx` → `hero-info` text |
+| **Speaker Profiles** | `Speakers.jsx` → `speakers` array (names, titles, bios, topics, colors) |
+| **Schedule / Timeline** | `Schedule.jsx` → `scheduleData` object (times, sessions, types) |
+| **Sponsor Logos** | `Sponsors.jsx` → `sponsorTiers` (company names, logos) |
+| **Registration URL** | `Hero.jsx`, `Navbar.jsx`, `Sponsors.jsx` → update `href` on register buttons |
+| **Contact / Socials** | `Footer.jsx` → email, social links, coordinates |
+
+### Pre-Wired Element IDs
+These IDs are ready for analytics, event tracking, or API integration:
+- `#hero-register-btn` — Hero section register button
+- `#nav-register-btn` — Navbar register button
+- `#navbar` — Main navigation bar
 
 ---
 
-## 🤝 Contributing & License
+## 🤝 Team
 
-Developed with ❤️ by the **SEDS CUSAT Technical Team** for **SpaceUp CUSAT**.
+Developed with ❤️ by the **SEDS CUSAT Technical Team** for **SpaceUp CUSAT Vol 8**.
+
+<div align="center">
+<br/>
+<sub>CUSAT Campus, Kochi — 10.0435° N, 76.3242° E</sub>
+<br/>
+<sub>seds@cusat.ac.in</sub>
+</div>
+]]>
