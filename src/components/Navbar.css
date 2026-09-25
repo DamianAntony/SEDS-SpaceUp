@@ -139,6 +139,15 @@
   padding: 4px 8px;
   border-radius: 3px;
   border-width: 1px;
+  transition: all 0.25s ease;
+}
+
+.navbar .nav-register-btn.btn-register:hover {
+  background: rgba(0, 229, 255, 0.18);
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.35);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 
