@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
+import spaceupLogo from '../assets/spaceup_cusat_logo.png'
 
 export default function Navbar({ onOpenArcade }) {
   const [scrolled, setScrolled] = useState(false)
@@ -44,6 +45,9 @@ export default function Navbar({ onOpenArcade }) {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="navbar-inner">
         <div className="navbar-left">
+          <a href="#" className="navbar-logo-link" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
+            <img src={spaceupLogo} alt="SpaceUp CUSAT" className="navbar-logo" />
+          </a>
           <span className="nav-signal font-mono">
             <span className="signal-dot" />
             SYS: SIGNAL_ACQUIRED // FREQ: 1420.405 MHz
